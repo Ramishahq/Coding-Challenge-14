@@ -16,4 +16,22 @@ async function fetchTickets() {
     } catch (error) {
         container.innerHTML = `<p>Error: ${error.message}</p>`;
     }
+
+    
 }
+
+// Task 3 
+function displayTickets(tickets) {
+    tickets.forEach(ticket => {
+        const ticketElement = document.createElement('div');
+        ticketElement.innerHTML = `
+            <p>Customer Name: ${ticket.userId}</p>
+            <p>Issue Description: ${ticket.title}</p>
+            <p>Details: ${ticket.body}</p>
+            <hr>
+        `;
+        container.appendChild(ticketElement);
+    });
+}
+// Calling the function to fetch ticket details
+fetchTickets();
